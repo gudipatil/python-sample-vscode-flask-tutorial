@@ -3,4 +3,4 @@ def test_mock():
 
   
 def test_not_mock():
-  assert False
+  assert True

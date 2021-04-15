@@ -31,7 +31,7 @@ steps:
   displayName: 'Install dependencies'
   
 - script: | 
-    echo $(myVarfromStageA)
+    echo $(test_db_name)
     displayName: 'print var'
 
 - script: |

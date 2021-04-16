@@ -3,7 +3,8 @@ import pytest
 
 DB_NAME = os.getenv('DB_NAME')
 
-@pytest.mark.parameterize('num', [2,3,4,5])
+even = [1, 2, 3, 4, 5]
+@pytest.mark.parametrize('num', even)
 def test_mock(num):
   assert num % 2 == 0
 

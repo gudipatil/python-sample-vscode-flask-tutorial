@@ -22,20 +22,31 @@ strategy:
 variables:
 - group: test_automation_group
 
-steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
+stages:
+  - stage: run_validation
+    displayName: Run tests
+    
+    jobs:
+      - job: tests
+        displayName: pytests runs
+        steps:
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: '$(python.version)'
+            displayName: 'Use Python $(python.version)'
 
-- script: |
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-  displayName: 'Install dependencies'
-
-- script: |
-    pip install pytest pytest-azurepipelines
-    pytest
-  displayName: 'pytest'
-  env:
-   DB_NAME: $(test_db_name)
+          - script: |
+              python -m pip install --upgrade pip
+              pip install -r requirements.txt
+          - script: |
+              pip install pytest pytest-azurepipelines
+              pytest
+            env:
+              DB_NAME: $(test_db_name)
+   
+    - stage: run_env
+      displayName: echoes env
+      jobs:
+        - job: echo
+          displayName: prints var
+          - bash: echo $(test_db_name)

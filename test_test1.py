@@ -15,6 +15,8 @@ def connection(request):
     request.cls.num1 = 0
     print(request.cls.num1)
     pytest.exit('test', 0)
+ def div(a,b)
+    return a/0
 
 
 @pytest.mark.usefixtures('connection')
@@ -30,5 +32,8 @@ class TestRecon:
     def test_is_odd(self, num):
         assert num % 2 == 1
         assert self.num1 == 8
+    
+    def test_mul(3,4):
+        assert div(3, 4) > 0
 
 

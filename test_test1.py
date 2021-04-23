@@ -15,7 +15,8 @@ def connection(request):
     request.cls.num1 = 0
     print(request.cls.num1)
     pytest.exit('test', 0)
- def div(a,b)
+    
+ def div(a,b):
     return a/0
 
 

@@ -23,7 +23,7 @@ def div(a, b):
 
 @pytest.mark.usefixtures('connection')
 class TestRecon:
-    @pytest.mark.parametrize('num', even, ids=['E35', 'E45'])
+    @pytest.mark.parametrize('num', even, ids=['A35', 'B45', 'c55', 'f67','d43','e33'])
     @pytest.mark.skipif(not skip_test, reason='skipping test')
     def test_row_count(self, num):
         assert num[0] == num[1]

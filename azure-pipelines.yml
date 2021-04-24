@@ -9,14 +9,6 @@ name: >-
 trigger:
 - master
 
-schedules:
-- cron: "0 2 * * *"
-  displayName: Daily afternoon build
-  branches:
-    include:
-    - master
-  always: true
-
 pool:
   vmImage: ubuntu-latest
 strategy:

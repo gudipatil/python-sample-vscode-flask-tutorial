@@ -28,7 +28,7 @@ steps:
     versionSpec: '$(python.version)'
   displayName: 'Use Python $(python.version)'
 
-- script: |
+- scrip;t: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
   displayName: 'Install dependencies'
@@ -37,3 +37,7 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+ 
+- script: |
+  displayName: 'print var'
+   echo: $(System.ArtifactsDirectory)

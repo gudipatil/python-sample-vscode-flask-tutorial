@@ -38,6 +38,5 @@ steps:
     pytest
   displayName: 'pytest'
  
-- script: |
+- script: echo: $(System.ArtifactsDirectory)
   displayName: 'print var'
-   echo: $(System.ArtifactsDirectory)
